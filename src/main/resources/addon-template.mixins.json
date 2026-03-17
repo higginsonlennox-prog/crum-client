@@ -1,11 +1,32 @@
-{
-  "required": true,
-  "package": "com.example.addon.mixin",
-  "compatibilityLevel": "JAVA_21",
-  "client": [
-    "ExampleMixin"
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  }
+package com.example.addon;
+
+import meteordevelopment.meteorclient.MeteorClient;
+import meteordevelopment.meteorclient.addons.MeteorAddon;
+import meteordevelopment.meteorclient.systems.modules.Categories;
+import meteordevelopment.meteorclient.systems.modules.Modules;
+import net.minecraft.item.Items;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class GingerbreadAddon extends MeteorAddon {
+    public static final Logger LOG = LoggerFactory.getLogger(GingerbreadAddon.class);
+
+    @Override
+    public void onInitialize() {
+        LOG.info("Baking the §6Gingerbread §fAddon!");
+
+        // Register your 'NBT-Swap' module here
+        // Modules.get().add(new NbtSwap()); 
+    }
+
+    @Override
+    public void onRegisterCategories() {
+        // This is the important part: it changes the 'Misc' category icon to your Gingerbread
+        Categories.Misc.setIcon(Items.GINGERBREAD_COOKIE.getDefaultStack());
+    }
+
+    @Override
+    public String getPackage() {
+        return "com.example.addon";
+    }
 }
