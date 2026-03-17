@@ -32,3 +32,6 @@ public class NbtSwap extends Module {
         toggle();
     }
 }
+public NbtSwap() {
+    super(Categories.Misc, "nbt-swap", "§fExperimental §6Gingerbread §fNBT-Swap.");
+}
